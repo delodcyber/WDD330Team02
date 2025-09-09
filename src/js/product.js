@@ -11,8 +11,11 @@ function addProductToCart(product) {
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
-  const product = await dataSource.findProductById(e.target.dataset.id);
-  addProductToCart(product);
+  // use currentTarget to get the dataset from the element that has the listener
+  const id = e.currentTarget?.dataset?.id || e.target?.dataset?.id;
+  if (!id) return; // no id -> nothing to do
+  const product = await dataSource.findProductById(id);
+  if (product) addProductToCart(product);
 }
 
 // Attach listeners to all add-to-cart buttons.
