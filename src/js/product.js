@@ -5,9 +5,9 @@ const dataSource = new ProductData("tents");
 
 function addProductToCart(product) {
   // read existing cart (array), append, then save
-  const cart1 = JSON.parse(localStorage.getItem("so-cart") || "[]");
-  cart1.push(product);
-  setLocalStorage("so-cart", cart1);
+  const cart = JSON.parse(localStorage.getItem("so-cart") || "[]");
+  cart.push(product);
+  setLocalStorage("so-cart", cart);
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
