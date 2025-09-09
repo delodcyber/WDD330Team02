@@ -15,7 +15,8 @@ async function addToCartHandler(e) {
   addProductToCart(product);
 }
 
-// add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
+// Attach listeners to all add-to-cart buttons.
+// Ensure your buttons have data-id attributes and a class like "add-to-cart".
+document.querySelectorAll(".add-to-cart").forEach((btn) =>
+  btn.addEventListener("click", addToCartHandler)
+);
